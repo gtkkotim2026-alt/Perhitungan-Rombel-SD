@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kebutuhan Guru SD – Dinas Pendidikan Kotawaringin Timur</title>
+<style>
+:root{--bg:#f4f7f6;--surface:#fff;--ink:#16262a;--muted:#55686c;--line:#d3dedc;--accent:#0b5a5c;--hl:#fff1b8;--warn:#8a4b00;--c1:#9fd3cc;--c2:#3a9a94;--c3:#0b4f55;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1a1c;--surface:#16252a;--ink:#e6efee;--muted:#9bb0b2;--line:#2b4146;--accent:#5cc3bb;--hl:#3b3516;--warn:#f0b968;--c1:#7fc0b8;--c2:#3a9a94;--c3:#1b6d73}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 18px 56px}
+h1{font:700 clamp(1.5rem,4vw,2.1rem)/1.2 Georgia,"Times New Roman",serif;margin:0 0 6px;letter-spacing:-.01em}
+h2{font:700 1.05rem/1.3 Georgia,serif;margin:0 0 12px}
+.sub{color:var(--muted);margin:0 0 24px;max-width:62ch}
+.grid{display:grid;grid-template-columns:300px 1fr;gap:18px;align-items:start}
+@media (max-width:820px){.grid{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px}
+.field{margin-bottom:14px}
+label{display:block;font-weight:600;font-size:.92rem;margin-bottom:4px}
+input[type=number]{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink);font:inherit}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.row2{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.hint{font-size:.82rem;color:var(--muted);margin:4px 0 0}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.big{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.big b{font:700 3rem/1 Georgia,serif;color:var(--accent)}
+.big span{color:var(--muted)}
+.bar{display:flex;height:34px;border-radius:6px;overflow:hidden;border:1px solid var(--line);margin:6px 0 10px}
+.bar div{display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;min-width:0;transition:flex-grow .25s}
+.bar .s1{background:var(--c1);color:#0b2a2c}.bar .s2{background:var(--c2);color:#fff}.bar .s3{background:var(--c3);color:#fff}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.88rem;margin-bottom:16px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.mapel{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media (max-width:560px){.mapel{grid-template-columns:1fr}}
+.mapel div{border:1px solid var(--line);border-radius:8px;padding:12px}
+.mapel b{display:block;margin-bottom:2px}
+.mapel p{margin:2px 0;font-size:.9rem;color:var(--muted)}
+.warn{color:var(--warn);font-weight:600}
+.tablewrap{margin-top:22px;overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-variant-numeric:tabular-nums}
+th,td{padding:9px 12px;text-align:center;border-bottom:1px solid var(--line);white-space:nowrap}
+thead th{background:var(--bg);font-size:.86rem}
+tbody tr{cursor:pointer}
+tbody tr:hover{background:var(--bg)}
+tbody tr.on{background:var(--hl);font-weight:600}
+tbody tr:last-child td{border-bottom:0}
+th:first-child,td:first-child{text-align:left}
+.group th{border-bottom:1px solid var(--line)}
+.note{font-size:.86rem;color:var(--muted);margin:14px 2px 0;max-width:80ch}
+.actions{margin-top:14px}
+button{font:inherit;font-weight:600;padding:8px 14px;border-radius:6px;border:1px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer}
+button:hover{background:var(--accent);color:var(--bg)}
+@media print{.panel.ctl,.actions{display:none}.grid{grid-template-columns:1fr}body{background:#fff;color:#000}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Kebutuhan Guru SD</h1>
+  <p class="sub">Guru Kelas, Guru PAI, dan Guru PJOK menurut jumlah rombel, dibagi ke jenjang Ahli Pertama, Ahli Muda, dan Ahli Madya. Dinas Pendidikan Kabupaten Kotawaringin Timur.</p>
+
+  <div class="grid">
+    <section class="panel ctl" aria-label="Pengaturan hitungan">
+      <h2>Pengaturan</h2>
+      <div class="field">
+        <label for="n">Jumlah rombel: <output id="nOut">12</output></label>
+        <input type="range" id="n" min="6" max="17" value="12">
+      </div>
+      <div class="field">
+        <label>JP per rombel per minggu</label>
+        <div class="row2">
+          <div><label for="jpPai" class="hint">PAI</label><input type="number" id="jpPai" min="1" value="4"></div>
+          <div><label for="jpPjok" class="hint">PJOK</label><input type="number" id="jpPjok" min="1" value="4"></div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Beban kerja guru (JP/minggu)</label>
+        <div class="row2">
+          <div><label for="min" class="hint">Paling sedikit</label><input type="number" id="min" min="1" value="24"></div>
+          <div><label for="max" class="hint">Paling banyak</label><input type="number" id="max" min="1" value="40"></div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Perbandingan jenjang guru kelas</label>
+        <div class="row">
+          <div><label for="r1" class="hint">Pertama</label><input type="number" id="r1" min="0" value="3"></div>
+          <div><label for="r2" class="hint">Muda</label><input type="number" id="r2" min="0" value="2"></div>
+          <div><label for="r3" class="hint">Madya</label><input type="number" id="r3" min="0" value="1"></div>
+        </div>
+        <p class="hint">Piramida 3 : 2 : 1 adalah asumsi, bukan standar baku. Ubah sesuai Peta Jabatan.</p>
+      </div>
+    </section>
+
+    <section class="panel" aria-live="polite" aria-label="Hasil hitungan">
+      <h2>Hasil untuk <span id="nTitle">12</span> rombel</h2>
+      <div class="big"><b id="total">0</b><span>guru dibutuhkan</span></div>
+
+      <h2>Guru kelas menurut jenjang</h2>
+      <div class="bar" id="bar" role="img" aria-label="Pembagian jenjang guru kelas"></div>
+      <div class="legend" id="legend"></div>
+
+      <div class="mapel">
+        <div><b>Guru PAI</b><p id="pai"></p><p id="paiJ"></p></div>
+        <div><b>Guru PJOK</b><p id="pjok"></p><p id="pjokJ"></p></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="tablewrap">
+    <table id="tbl">
+      <thead>
+        <tr class="group"><th rowspan="2">Rombel</th><th colspan="4">Guru Kelas</th><th rowspan="2">Guru PAI<br>(JP → guru)</th><th rowspan="2">Guru PJOK<br>(JP → guru)</th><th rowspan="2">Total</th></tr>
+        <tr><th>Jumlah</th><th>Pertama</th><th>Muda</th><th>Madya</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <p class="note">Dasar hitungan: satu guru kelas per rombel; PAI dan PJOK masing-masing 4 JP per rombel per minggu (Struktur Kurikulum SD/MI, Permendikbudristek No. 12 Tahun 2024); beban kerja guru 24 sampai 40 JP per minggu. Untuk PAI dan PJOK, jumlah guru hanya 1 atau 2 per sekolah sehingga jenjang mengikuti pangkat/golongan pemangku jabatan. Pada hitungan ini, 2 guru dicontohkan sebagai 1 Ahli Pertama dan 1 Ahli Muda. Mata pelajaran tambahan (Bahasa Inggris, Muatan Lokal) tidak dihitung.</p>
+  <div class="actions"><button type="button" onclick="window.print()">Cetak tabel</button></div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const fmt = x => (Math.round(x * 10) / 10).toString().replace('.', ',');
+
+function read() {
+  return {
+    n: +$('n').value, jpPai: +$('jpPai').value || 1, jpPjok: +$('jpPjok').value || 1,
+    min: +$('min').value || 1, max: Math.max(+$('max').value || 40, 1),
+    r: [+$('r1').value || 0, +$('r2').value || 0, +$('r3').value || 0]
+  };
+}
+
+function split(n, r) {
+  const s = r[0] + r[1] + r[2];
+  if (!s) return [n, 0, 0];
+  const raw = r.map(x => n * x / s);
+  const base = raw.map(x => Math.floor(x + 1e-9));
+  let left = n - base[0] - base[1] - base[2];
+  const order = [0, 1, 2].sort((a, b) => {
+    const d = Math.round((raw[b] - base[b]) * 1e6) - Math.round((raw[a] - base[a]) * 1e6);
+    return d || a - b;
+  });
+  for (let i = 0; i < left; i++) base[order[i]]++;
+  return base;
+}
+
+function mapel(n, jpPer, s) {
+  const jp = n * jpPer;
+  const g = Math.max(1, Math.ceil(jp / s.max));
+  return { jp, g, per: jp / g };
+}
+
+function jenjangMapel(g) {
+  if (g === 1) return 'Jenjang mengikuti pemangku jabatan';
+  if (g === 2) return '1 Ahli Pertama + 1 Ahli Muda';
+  return 'Jenjang mengikuti pemangku jabatan';
+}
+
+function mapelText(m, s) {
+  let t = m.jp + ' JP per minggu → ' + m.g + ' guru (rata-rata ' + fmt(m.per) + ' JP)';
+  return t;
+}
+
+function render() {
+  const s = read();
+  $('nOut').textContent = s.n;
+  $('nTitle').textContent = s.n;
+
+  const j = split(s.n, s.r);
+  const pai = mapel(s.n, s.jpPai, s), pjok = mapel(s.n, s.jpPjok, s);
+  $('total').textContent = s.n + pai.g + pjok.g;
+
+  const names = ['Ahli Pertama', 'Ahli Muda', 'Ahli Madya'];
+  $('bar').innerHTML = j.map((v, i) => v ? '<div class="s' + (i + 1) + '" style="flex-grow:' + v + '">' + v + '</div>' : '').join('');
+  $('legend').innerHTML = j.map((v, i) => '<span><i style="background:var(--c' + (i + 1) + ')"></i>' + names[i] + ': ' + v + '</span>').join('');
+
+  const w = (m) => m.per < s.min ? ' <span class="warn">Di bawah ' + s.min + ' JP, lengkapi dengan tugas tambahan.</span>' : '';
+  $('pai').innerHTML = mapelText(pai, s) + w(pai);
+  $('pjok').innerHTML = mapelText(pjok, s) + w(pjok);
+  $('paiJ').textContent = jenjangMapel(pai.g);
+  $('pjokJ').textContent = jenjangMapel(pjok.g);
+
+  let rows = '';
+  for (let n = 6; n <= 17; n++) {
+    const jj = split(n, s.r), a = mapel(n, s.jpPai, s), b = mapel(n, s.jpPjok, s);
+    rows += '<tr data-n="' + n + '"' + (n === s.n ? ' class="on"' : '') + '><td>' + n + '</td><td>' + n + '</td><td>' + jj[0] + '</td><td>' + jj[1] + '</td><td>' + jj[2] + '</td><td>' + a.jp + ' → ' + a.g + '</td><td>' + b.jp + ' → ' + b.g + '</td><td>' + (n + a.g + b.g) + '</td></tr>';
+  }
+  document.querySelector('#tbl tbody').innerHTML = rows;
+}
+
+document.querySelectorAll('input').forEach(el => el.addEventListener('input', render));
+$('tbl').addEventListener('click', e => {
+  const tr = e.target.closest('tr[data-n]');
+  if (tr) { $('n').value = tr.dataset.n; render(); }
+});
+render();
+</script>
+</body>
+</html>
